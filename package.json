@@ -13,7 +13,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "node echo \"Pre commir started\" && npm test && link-staged",
+      "pre-commit": "echo \"Pre commir started\"",
       "pre-push": "npm test"
     }
   },
