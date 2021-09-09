@@ -1,1 +1,2 @@
-var a = 676776;
+const a = 676776;
+console.log(a);
