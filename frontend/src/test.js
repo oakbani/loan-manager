@@ -1,2 +1,5 @@
-const f = 88;
+var f = 88
+
+
+
 console.log(f);
