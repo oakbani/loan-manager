@@ -1,1 +1,2 @@
-var a=5
+const f = 88;
+console.log(f);
