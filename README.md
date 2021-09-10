@@ -88,19 +88,28 @@ https://www.geeksforgeeks.org/how-to-deploy-react-app-to-heroku/
 Steps we can follow:
 
 1- heroku -v
+
 2- heroku login (Enter your Heroku credentials)
+
 3- git init
+
+
 4- git add .
+
 5- git commit -m “initial commit”
+
 6- heroku create myapp --buildpack https://buildpack-registry.s3.amazonaws.com/buildpacks/mars/create-react-app.tgz
+
 
 check if remote heroku present
 
 7- git remote -v
 
 
-if not then after "heroku create" You should see two links after running this command. Copy the second one
-  8- git remote add heroku PASTE THE LINK YOU JUST COPIED
+if not then after "heroku create" - You should see two links after running this command. Copy the second one and run the following command :
+
+ 
+      - git remote add heroku PASTE THE LINK YOU JUST COPIED
 
 
 8- git push heroku master
