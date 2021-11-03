@@ -30,13 +30,15 @@ SECRET_KEY = 'django-insecure-kh=xcqwzrx3m4$53&3s&)h%%(lsbnye#f!zj=x_s^liy7)%9jt
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "loan-manager1.herokuapp.com"
+    "loan-manager1.herokuapp.com",
+    "localhost"
 ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,7 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Karachi'
 
 USE_I18N = True
 

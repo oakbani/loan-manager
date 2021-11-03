@@ -14,7 +14,7 @@ python manage.py sqlmigrate portal 0001
 
 ### run migrations
 python manage.py migrate
-heroku run python manage.py migrat
+heroku run python manage.py migrate
 
 ### check for any problems in the project
 python manage.py check
