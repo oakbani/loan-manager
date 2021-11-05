@@ -1,0 +1,30 @@
+{% extends "funds/base.html" %}
+
+{% block content %}
+<h3>Name:{{ name }}</h3>
+<div>
+    <table class="table">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Type</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for t in transactions %}
+        <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{t.date}}</td>
+        <td>{{t.type}}</td>
+        <td>{{t.amount}}</td>
+        <td>{{t.balance}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+{% endblock %}

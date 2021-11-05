@@ -20,6 +20,11 @@ class Transaction(models.Model):
     LOANTAKEN = "LT"
     LOANRETURNED = "LR"
 
+    # Adding reverse as well for views todo: see this later
+    DN = "Donation"
+    LT = "Loan Taken"
+    LR = "Loan Returned"
+
     TRANS_TYPE_CHOICES =  [
         (DONATION, 'Donation'),
         (LOANTAKEN, 'Loan Taken'),
