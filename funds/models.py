@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -8,7 +9,8 @@ class Participant(models.Model):
     contact_num = models.CharField(max_length=200)
 
     def get_absolute_url(self):
-        return "/people/%i/" % self.id
+        return reverse('funds:participant', kwargs={'participant_id' : self.id})
+        # return "/people/%i/" % self.id
 
     def __str__(self):
         return f"{self.id}: '{self.fullname}'"
