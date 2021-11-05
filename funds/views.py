@@ -52,10 +52,43 @@ def participant(request, participant_id):
 
     return render(request, 'funds/participant.html', context)
 
+def report(request):
 
-# def index(request):
-#     latest_question_list = Question.objects.order_by('-pub_date')[:5]
-#     context = {
-#         'latest_question_list': latest_question_list,
-#     }
-#     return render(request, 'polls/index.html', context)
+    ### -- get participants data 
+    data = []
+
+    # get all participants
+    all_participants = Participant.objects.all()
+
+    # get balance for each participant
+    for p in all_participants:
+        response = {
+            "id": p.id,
+            "fullname": p.fullname,
+            "balance": 0
+        }
+        transactions = Transaction.objects.filter(participant=p.id)
+        processed_transactions = process_transactions(transactions)
+        if processed_transactions:
+            balance = processed_transactions[-1]['balance']
+            response['balance'] = balance
+
+        data.append(response)
+
+    ### -- data end
+
+    ### --  calculate fund balance
+
+    all_transactions = Transaction.objects.all().order_by("date")
+    processed_transactions = process_transactions(all_transactions)
+
+    if processed_transactions:
+         fund_balance = processed_transactions[-1]['balance']
+
+    ### -- fund balance end
+
+    context = {
+        "fund_balance": fund_balance,
+        "data": data
+    }
+    return render(request, 'funds/report.html', context)

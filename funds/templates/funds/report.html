@@ -1,26 +1,23 @@
 {% extends "funds/base.html" %}
 
 {% block content %}
-<h3>{{ name }}</h3>
+<h3>Overall Report</h3>
+<h6>Fund Balance: {{fund_balance}}</h6>
 <div>
     <table class="table">
     <thead>
         <tr>
         <th scope="col">#</th>
-        <th scope="col">Date</th>
-        <th scope="col">Type</th>
-        <th scope="col">Amount</th>
+        <th scope="col">Particpant Name</th>
         <th scope="col">Balance</th>
         </tr>
     </thead>
     <tbody>
-    {% for t in transactions %}
+    {% for p in data %}
         <tr>
         <th scope="row">{{ forloop.counter }}</th>
-        <td>{{t.date}}</td>
-        <td>{{t.type}}</td>
-        <td>{{t.amount}}</td>
-        <td>{{t.balance}}</td>
+        <td><a href="{% url 'funds:participant' p.id %}">{{p.fullname}}<a></td>
+        <td>{{p.balance}}</td>
         </tr>
     {% endfor %}
     </tbody>

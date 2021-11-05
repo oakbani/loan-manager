@@ -40,7 +40,6 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     'funds.apps.FundsConfig',
     'polls.apps.PollsConfig',
-    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
