@@ -82,6 +82,7 @@ def report(request):
     all_transactions = Transaction.objects.all().order_by("date")
     processed_transactions = process_transactions(all_transactions)
 
+    fund_balance = 0
     if processed_transactions:
          fund_balance = processed_transactions[-1]['balance']
 
