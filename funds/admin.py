@@ -7,7 +7,7 @@ from .models import Participant, Transaction
 
 class ParticipantAdmin(admin.ModelAdmin):
     view_on_site = True
-    list_display = ['id', 'fullname', 'contact_num']
+    list_display = ['id', 'fullname', 'p_type','contact_num']
     list_display_links = ['fullname']
     search_fields = ['fullname', 'contact_num']
 

@@ -4,9 +4,23 @@ from django.urls import reverse
 # Create your models here.
 
 class Participant(models.Model):
+    DONOR = "DONOR"
+    LOANER = "LOANER"
+
+    P_TYPE_CHOICES =  [
+        (DONOR, 'Donor'),
+        (LOANER, 'Loaner')
+    ]
+
     id = models.AutoField(primary_key=True)
     fullname = models.CharField(max_length=200)
     contact_num = models.CharField(max_length=200)
+    p_type = models.CharField(
+        "Participant Type",
+        max_length = 6,
+        choices = P_TYPE_CHOICES,
+        default = DONOR 
+    )
 
     def get_absolute_url(self):
         return reverse('funds:participant', kwargs={'participant_id' : self.id})
