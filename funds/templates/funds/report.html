@@ -8,6 +8,7 @@
     <thead>
         <tr>
         <th scope="col">#</th>
+        <th scope="col">Account Number</th>
         <th scope="col">Particpant Name</th>
         <th scope="col">Balance</th>
         </tr>
@@ -16,6 +17,7 @@
     {% for p in data %}
         <tr>
         <th scope="row">{{ forloop.counter }}</th>
+        <td>{{p.account_num}}</td>
         <td><a href="{% url 'funds:participant' p.id %}">{{p.fullname}}<a></td>
         <td>{{p.balance}}</td>
         </tr>

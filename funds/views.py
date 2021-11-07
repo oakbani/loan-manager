@@ -47,8 +47,9 @@ def participant(request, participant_id):
     context['transactions'] =  processed_transactions
 
     # get participant name
-    name = Participant.objects.filter(id=participant_id)[0].fullname
-    context['name'] = name
+    partc = Participant.objects.filter(id=participant_id)[0]
+    context['name'] = partc.fullname
+    context['account_num'] = partc.account_num
 
     return render(request, 'funds/participant.html', context)
 
@@ -65,7 +66,8 @@ def report(request):
         response = {
             "id": p.id,
             "fullname": p.fullname,
-            "balance": 0
+            "balance": 0,
+            "account_num": p.account_num
         }
         transactions = Transaction.objects.filter(participant=p.id)
         processed_transactions = process_transactions(transactions)
