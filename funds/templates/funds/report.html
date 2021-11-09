@@ -4,8 +4,8 @@
 <h3>Overall Report</h3>
 <h6>Fund Balance: {{fund_balance}}</h6>
 <div>
-    <table class="table">
-    <thead>
+    <table id="report-table" class="table table-bordered table-striped">
+    <thead class="thead-dark">
         <tr>
         <th scope="col">#</th>
         <th scope="col">Account Number</th>
@@ -25,5 +25,14 @@
     </tbody>
     </table>
 </div>
+
+<!-- Data Tables -->
+<script src="http:////cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready( function () {
+        $('#report-table').DataTable();
+    } );
+</script>
 
 {% endblock %}
